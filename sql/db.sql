@@ -15,7 +15,11 @@ CREATE TABLE IF NOT EXISTS 'user' (
 	'last_login_ip' varchar(15) NOT NULL,		/* 最近登录的IP地址 */
 	'status' tinyint(1) unsigned NOT NULL,		/* 启用状态：0-表示禁用，1-表示启用 */
 	'remark' varchar(256) DEFAULT NULL,		/* 备注信息 */
-	PRIMARY KEY('id')
+	PRIMARY KEY('id'),
+	KEY 'username' ('username'),
+	KEY 'password' ('password'),
+	KEY 'email' ('email'),
+	KEY 'last_login_time' ('last_login_time')
 );
 
 /*
@@ -24,10 +28,11 @@ CREATE TABLE IF NOT EXISTS 'user' (
 CREATE TABLE IF NOT EXISTS 'role' (
 	'id' int unsigned NOT NULL AUTO_INCREMENT,	/* 角色 ID（唯一标识） */
 	'rolename' varchar(32) NOT NULL,			/* 角色名 */
-	'pid' int unsigned DEFAULT NULL,			/* 父角色 ID */
+	'pid' int unsigned DEFAULT '0',				/* 父角色 ID */
 	'status' tinyint(1) unsigned NOT NULL,		/* 启用状态：0-表示禁用，1-表示启用 */
 	'remark' varchar(256) DEFAULT NULL,		/* 备注信息 */
 	PRIMARY KEY('id'),
+	KEY 'rolename' ('rolename'),
 	KEY 'pid' ('pid'),
 	KEY 'status' ('status')
 );
@@ -36,10 +41,9 @@ CREATE TABLE IF NOT EXISTS 'role' (
  * 用户与角色对应表
  */
 CREATE TABLE IF NOT EXISTS 'role_user' (
-	'role_id' int unsigned DEFAULT NULL,	/* 角色 ID（唯一标识） */
-	'user_id' int unsigned DEFAULT NULL,	/* 用户 ID（唯一标识） */
-	KEY 'role_id' ('role_id'),
-	KEY 'user_id' ('user_id')
+	'role_id' int unsigned NOT NULL DEFAULT '0',		/* 角色 ID（唯一标识） */
+	'user_id' int unsigned NOT NULL DEFAULT '0',		/* 用户 ID（唯一标识） */
+	PRIMARY KEY('role_id', 'user_id')
 );
 
 /*
@@ -51,7 +55,7 @@ CREATE TABLE IF NOT EXISTS 'permission' (
 	'title' varchar(64) DEFAULT NULL,			/* 权限名称 */
 	'status' tinyint(1) DEFAULT '0',			/* 启用状态：0-表示禁用，1-表示启用 */
 	'remark' varchar(256) DEFAULT NULL,		/* 备注信息 */
-	'sort' smallint(6) unsigned DEFAULT NULL,	/* 排序值（默认值为50） */
+	'sort' smallint(6) unsigned DEFAULT '50',	/* 排序值（默认值为50） */
 	'pid' smallint(6) unsigned NOT NULL,		/* 父权限 ID（如:方法pid对应相应的控制器） */
 	'level' tinyint(1) unsigned NOT NULL,		/* 权限类型：1-表示应用（模块）, 2-表示控制器, 3-表示方法 */
 	PRIMARY KEY ('id'),
@@ -65,10 +69,7 @@ CREATE TABLE IF NOT EXISTS 'permission' (
  * 角色权限对应表
  */
 CREATE TABLE IF NOT EXISTS 'role_permission' (
-  'role_id' int unsigned NOT NULL,			/* 角色 ID（唯一标识） */
-  'permission_id' int unsigned NOT NULL,	/* 权限 ID（唯一标识） */
-  'level' tinyint(1) NOT NULL,
-  'module' varchar(64) DEFAULT NULL,
-  KEY 'role_id' ('role_id'),
-  KEY 'permission_id' ('permission_id')
-)
+  'role_id' int unsigned NOT NULL DEFAULT '0',			/* 角色 ID（唯一标识） */
+  'permission_id' int unsigned NOT NULL DEFAULT '0',	/* 权限 ID（唯一标识） */
+  PRIMARY KEY('role_id', 'permission_id')
+);

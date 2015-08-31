@@ -20,23 +20,6 @@
 			<h2>Sign Up <small>It's free and always will be.</small></h2>
 			<hr class="colorgraph">
 			
-			<!-- First name and last name -->
-			<div class="form-group has-error">
-				<label class="control-label" for="inputError">Input error</label>
-			</div>
-			<div class="row">
-				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-					<div class="form-group has-error">
-						<input type="text" name="first_name" id="first_name" class="form-control input-lg" placeholder="First Name" tabindex="1">
-					</div>
-				</div>
-				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-					<div class="form-group">
-						<input type="text" name="last_name" id="last_name" class="form-control input-lg" placeholder="Last Name" tabindex="2">
-					</div>
-				</div>
-			</div>
-			
 			<!-- User name -->
 			<div class="form-group has-error">
 				<label class="control-label" for="inputError">Input error</label>
@@ -88,10 +71,10 @@
 			
 			<hr class="colorgraph">
 			<div class="row">
-				<div class="col-xs-12 col-md-6 col-lg-6">
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 					<input type="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="7">
 				</div>
-				<div class="col-xs-12 col-md-6 col-lg-6">
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 					<a href="#" class="btn btn-success btn-block btn-lg">Sign In</a>
 				</div>
 			</div>

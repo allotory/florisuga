@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS user (
 	remark varchar(256) DEFAULT NULL,			/* 备注信息 */
 	PRIMARY KEY(id),
 	KEY username (username),
-	KEY password (password(40)),
+	KEY password (password(40)),				/* 没必要做256长度的索引，取前40即可，否则报：“Specified key was too long; max key length is 767 bytes” */
 	KEY email (email),
 	KEY last_login_time (last_login_time)
 );

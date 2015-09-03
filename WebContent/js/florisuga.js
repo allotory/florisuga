@@ -31,10 +31,8 @@ function validateUsername(id) {
 	var username = document.getElementById(id).value.trim();
 	var reg = /^[a-zA-Z]{1}([a-zA-Z0-9]|[._]){5,19}$/;
 	if (!reg.test(username)) {
-		alert(false);
 		return false;
 	} else {
-		alert(true);
 		return true;
 	}
 }
@@ -77,4 +75,57 @@ function validateConfirmPass(id, cid) {
 function validateTerms(id) {
 	var terms = document.getElementById(id);
 	return terms.checked;
+}
+
+// 提交校验
+function validateSubmit() {
+	var isUsernameChecked = validateUsername("username");
+	var isEmailChecked = validateEmail("email");
+	var isPasswordChecked = validatePass("password");
+	var isConfirmPassChecked = validateConfirmPass("password", "password_confirmation");
+	var isTermsChecked = validateTerms("terms");
+	
+	if(!(isUsernameChecked && isEmailChecked && isPasswordChecked && isConfirmPassChecked)) {
+		if(isUsernameChecked) {
+			hiddenItem("user_error");
+			modAttribute("name_form", "form-group has-success");
+		}else {
+			showItem("user_error");
+			modAttribute("name_form", "form-group has-error");
+		}
+		
+		if(isEmailChecked) {
+			hiddenItem("email_error");
+			modAttribute("email_form", "form-group has-success");
+		}else {
+			showItem("email_error");
+			modAttribute("email_form", "form-group has-error");
+		}
+		
+		if(isPasswordChecked) {
+			hiddenItem("password_error");
+			modAttribute("password_form", "form-group has-success");
+		}else {
+			showItem("password_error");
+			modAttribute("password_form", "form-group has-error");
+		}
+		
+		if(isConfirmPassChecked) {
+			hiddenItem("password_error");
+			modAttribute("password_confirmation_form", "form-group has-success");
+		}else {
+			showItem("password_error");
+			modAttribute("password_confirmation_form", "form-group has-error");
+		}
+		
+		if(isTermsChecked) {
+			hiddenItem("terms_error");
+		}else {
+			showItem("terms_error");
+		}
+		
+		return false;
+	}
+	
+	return true;
 }

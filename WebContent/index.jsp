@@ -55,25 +55,25 @@
 			</div>
 			
 			<!-- Agree Terms and Conditions -->
-			<div class="form-group has-error" style="display:none;">
-				<label class="control-label" for="inputError">需要同意网站条款</label>
+			<div class="form-group has-error" id="terms_error" style="display:none;">
+				<label class="control-label" for="inputError">需要同意服务条款与隐私协议</label>
 			</div>
 			<div class="row">
 				<div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
 					<span class="button-checkbox">
 						<button type="button" class="btn" data-color="info" tabindex="7">我同意</button>
-						<input type="checkbox" name="t_and_c" id="t_and_c" class="hidden" value="1">
+						<input type="checkbox" name="terms" id="terms" class="hidden" value="1">
 					</span>
 				</div>
 				<div class="col-xs-8 col-sm-9 col-md-9 col-lg-9">
-					 By clicking <strong class="label label-primary">注册</strong>, you agree to the <a href="#" data-toggle="modal" data-target="#t_and_c_m">Terms of Service</a> and <a href="#" data-toggle="modal" data-target="#t_and_c_m">Privacy Policy</a> set out by this site, including our Cookie Use.
+					 点击 <strong class="label label-primary">注册</strong>，您将会同意网站的 <a href="#" data-toggle="modal" data-target="#t_and_c_m">服务条款</a> 和 <a href="#" data-toggle="modal" data-target="#t_and_c_m">隐私协议</a>。
 				</div>
 			</div>
 			
 			<hr class="colorgraph">
 			<div class="row">
 				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-					<input type="submit" value="注册" class="btn btn-primary btn-block btn-lg" tabindex="7">
+					<input type="submit" value="注册" onclick="return validateSubmit();" class="btn btn-primary btn-block btn-lg" tabindex="7">
 				</div>
 				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 					<a href="#" class="btn btn-success btn-block btn-lg">登录</a>

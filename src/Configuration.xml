@@ -8,6 +8,7 @@
     <typeAliases> 
         <typeAlias alias="Role" type="com.florisuga.model.Role"/> 
         <typeAlias alias="Permission" type="com.florisuga.model.Permission"/> 
+        <typeAlias alias="RolePermission" type="com.florisuga.model.RolePermission"/>
     </typeAliases> 
 
     <environments default="development">
@@ -25,5 +26,6 @@
     <mappers>
         <mapper resource="com/florisuga/model/Role.xml"/>
         <mapper resource="com/florisuga/model/Permission.xml"/>
+        <mapper resource="com/florisuga/model/RolePermission.xml"/>
     </mappers>
 </configuration>

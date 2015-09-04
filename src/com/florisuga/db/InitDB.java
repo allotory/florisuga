@@ -5,8 +5,10 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.florisuga.dao.PermissionDAO;
 import com.florisuga.dao.RoleDAO;
+import com.florisuga.dao.RolePermissionDAO;
 import com.florisuga.model.Permission;
 import com.florisuga.model.Role;
+import com.florisuga.model.RolePermission;
 
 public class InitDB {
 
@@ -55,6 +57,20 @@ public class InitDB {
 
 		permissionDAO.insertPermission(permission0);
 		permissionDAO.insertPermission(permission1);
+		
+		// 角色权限对照
+		RolePermissionDAO rolePermissionDAO = session.getMapper(RolePermissionDAO.class);
+		
+		RolePermission rolePermission0 = new RolePermission();
+		rolePermission0.setRole_id(1);
+		rolePermission0.setPermission_id(1);
+		
+		RolePermission rolePermission1 = new RolePermission();
+		rolePermission1.setRole_id(2);
+		rolePermission1.setPermission_id(2);
+
+		rolePermissionDAO.insertRolePermission(rolePermission0);
+		rolePermissionDAO.insertRolePermission(rolePermission1);
 		
 		session.commit();
 		

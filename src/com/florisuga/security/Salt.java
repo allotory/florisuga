@@ -19,7 +19,7 @@ public class Salt {
 		}
 		
 		// 验证码数字取值范围
-		String codeList = "abckef1234567890"; 
+		String codeList = "abcdef1234567890"; 
 		// 定义一个验证码字符串变量
 		String salt = new String(""); 
 

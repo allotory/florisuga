@@ -6,17 +6,19 @@ public class User {
 
 	private int id;
 	
-	private String name;
+	private String username;
 	
 	private String password;
 	
+	private String salt;
+	
 	private String email;
 	
-	private Timestamp createTime;
+	private Timestamp create_time;
 	
-	private Timestamp lastLoginTime;
+	private Timestamp last_login_time;
 	
-	private String lastLogin_ip;
+	private String last_login_ip;
 	
 	private int status;
 	
@@ -30,12 +32,12 @@ public class User {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getPassword() {
@@ -44,6 +46,14 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	public String getSalt() {
+		return salt;
+	}
+
+	public void setSalt(String salt) {
+		this.salt = salt;
 	}
 
 	public String getEmail() {
@@ -54,28 +64,28 @@ public class User {
 		this.email = email;
 	}
 
-	public Timestamp getCreateTime() {
-		return createTime;
+	public Timestamp getCreate_time() {
+		return create_time;
 	}
 
-	public void setCreateTime(Timestamp createTime) {
-		this.createTime = createTime;
+	public void setCreate_time(Timestamp create_time) {
+		this.create_time = create_time;
 	}
 
-	public Timestamp getLastLoginTime() {
-		return lastLoginTime;
+	public Timestamp getLast_login_time() {
+		return last_login_time;
 	}
 
-	public void setLastLoginTime(Timestamp lastLoginTime) {
-		this.lastLoginTime = lastLoginTime;
+	public void setLast_login_time(Timestamp last_login_time) {
+		this.last_login_time = last_login_time;
 	}
 
-	public String getLastLogin_ip() {
-		return lastLogin_ip;
+	public String getLast_login_ip() {
+		return last_login_ip;
 	}
 
-	public void setLastLogin_ip(String lastLogin_ip) {
-		this.lastLogin_ip = lastLogin_ip;
+	public void setLast_login_ip(String last_login_ip) {
+		this.last_login_ip = last_login_ip;
 	}
 
 	public int getStatus() {
